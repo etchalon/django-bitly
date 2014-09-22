@@ -19,6 +19,8 @@ def bitlify(value):
         bittle = Bittle.objects.bitlify(value)
         if bittle:
             url = bittle.shortUrl
+        elif isinstance(url, basestring):
+            url = value
         else:
             url = value.get_absolute_url
         return url
